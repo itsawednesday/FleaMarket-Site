@@ -1,0 +1,41 @@
+.intro-container {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    letter-spacing: 1px;
+
+    font-family: 'Oswald', sans-serif;
+    color: rgb(247, 249, 251);
+    font-size: 12px;
+
+    padding: 5px 0px;
+}
+.intro-name {
+    display: block;
+    font-family: 'Francois One', sans-serif;
+    cursor: default;
+}
+
+/*center the intro text*/
+
+.intro-title {
+
+        font-weight: 520;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 10px 5px;
+
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        width: 770px;
+        height: 80px;
+        margin-bottom: 22px;
+        display: inline-block;
+
+      }
+
+@media (max-width: 900px) {
+    .intro-title{
+        width: 90%;
+    }
+}

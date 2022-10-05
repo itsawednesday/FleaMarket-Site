@@ -1,25 +1,103 @@
 import logo from './logo.svg';
 import './App.css';
+import React, { useState, useRef } from 'react';
+import AddMarket from './components/AddMarket'
+import { GlobalProvider } from './global/GlobalState';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import NavBar from './components/NavBar';
 
-export default App;
+import Banner from './components/Banner';
+
+
+import flea from './assets/flea.jpeg';
+
+
+
+  const App = () => {
+
+
+    const [isNavExpanded, setIsNavExpanded] = useState(false);
+    const [navBgColor, setNavBgColor] = useState(false);
+  
+    const homeRef = useRef();
+    const marketRef = useRef(); 
+    //const skillsRef = useRef(); 
+
+    const homeClick = () => {
+      homeRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  
+  
+  
+    const marketClick = () => {
+      marketRef.current.scrollIntoView({ behavior: 'smooth' });
+      setIsNavExpanded(false);
+    }
+  
+    // const skillsClick = () => {
+    //   skillsRef.current.scrollIntoView({ behavior: 'smooth' });
+    //   setIsNavExpanded(false);
+    // }
+  
+  
+    
+  
+      
+    return (
+      <div className='main-container' ref={homeRef}>
+        <NavBar 
+          isNavExpanded={isNavExpanded}
+          setIsNavExpanded={setIsNavExpanded}
+          navBgColor={navBgColor}
+          setNavBgColor={setNavBgColor}
+          homeClick={homeClick}
+          marketClick={marketClick}
+         // skillsClick= {skillsClick}
+          
+        
+            />
+    
+   
+       
+        
+        
+          <div className='intro-box'>
+            <Banner />
+          </div>
+         
+     
+  
+        {/* main body begin */}
+        <div className='main-body-box'>
+  
+  
+          <div className='Market-box' ref={marketRef}>
+              <AddMarket />
+          </div>
+  
+          
+         
+  
+          {/* <div className='skills-box' ref={skillsRef}>
+              <Skills />
+          </div> */}
+         
+         
+  
+         
+        </div>
+      </div>
+   
+    );
+  }
+  
+  export default App;
+
+  {/* //   return (
+//     <GlobalProvider> 
+//      < AddMarket/>
+//     </GlobalProvider>
+//   );
+// } */}
+
+
